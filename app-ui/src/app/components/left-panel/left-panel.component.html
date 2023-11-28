@@ -1,0 +1,33 @@
+<div class="left-panel-container">
+  <mat-card>
+    <mat-card-title>Chatroom</mat-card-title>
+    <mat-divider inset></mat-divider>
+    <div>
+
+      <!-- Messages -->
+      <div #messagesContainer class="message">
+        <span *ngFor="let message of messages">
+          <span style="display: flex;">
+            <p>
+              <em>{{message.username}}</em> <br /> {{message.text}}
+            </p>
+
+          </span>
+        </span>
+      </div>
+
+      <!-- Add Message -->
+      <div style="position: fixed; bottom: 0; display: flex; flex-direction: row; align-items: center;">
+        <mat-form-field style="width: 130px;">
+          <input matInput [formControl]="chatMessage" type="text">
+        </mat-form-field>
+        <button mat-button (click)="sendMessage()">
+          <span style="display: flex; flex-direction: row; align-items: center;">
+            <mat-icon style="margin-left: 20px;">send</mat-icon>
+          </span>
+        </button>
+
+      </div>
+    </div>
+  </mat-card>
+</div>

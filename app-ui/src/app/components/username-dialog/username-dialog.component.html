@@ -1,0 +1,12 @@
+<!-- username-dialog.component.html -->
+<h1 mat-dialog-title>Enter Your Username</h1>
+<div mat-dialog-content>
+  <p>Please enter your username:</p>
+  <mat-form-field>
+    <input matInput placeholder="Username" [(ngModel)]="data.username">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <!-- s<button mat-button (click)="onNoClick()">Cancel</button> -->
+  <button mat-button [mat-dialog-close]="data.username" cdkFocusInitial>Submit</button>
+</div>

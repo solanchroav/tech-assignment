@@ -1,0 +1,13 @@
+<div class="right-panel-container">
+  <mat-card>
+    <mat-card-title>Active Users</mat-card-title>
+    <mat-divider inset></mat-divider>
+    <span *ngFor="let user of users">
+      <span style="display: flex;">
+        <p>
+          {{user.username}}
+        </p>
+      </span>
+    </span>
+  </mat-card>
+</div>

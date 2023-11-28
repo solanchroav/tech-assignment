@@ -1,0 +1,42 @@
+<div class="canvas-container">
+  <mat-card>
+    <mat-card-title>Social Feed</mat-card-title>
+    <mat-divider inset></mat-divider>
+    <div>
+      <div class="form-container">
+        <mat-form-field style="width: 800px; ">
+          <mat-label>Whats on your mind, {{username}}?</mat-label>
+          <textarea matInput [formControl]="postMessage"></textarea>
+        </mat-form-field>
+        <button mat-button (click)="onSubmitNewPost()">
+          <span style="display: flex; flex-direction: row; align-items: center;">
+            <mat-icon style="margin-left: 20px;">send</mat-icon>
+          </span>
+        </button>
+      </div>
+      <div>
+        <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="logs-container">
+          <div *cdkVirtualFor="let post of posts" class="message-item">
+            <p>
+              <em>{{post.username}}</em> <br />{{post.content}}
+            </p>
+          </div>
+        </cdk-virtual-scroll-viewport>
+      </div>
+    </div>
+    <div>
+      <div class="button-container">
+        <button mat-raised-button color="primary" (click)="getAllPosts()">Show All Posts</button>
+      </div>
+      <div>
+        <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="all-logs-container">
+          <div *cdkVirtualFor="let post of allPosts" class="message-item">
+            <p>
+              <em>{{post.username}}</em> <br /> {{post.content}}
+            </p>
+          </div>
+        </cdk-virtual-scroll-viewport>
+      </div>
+    </div>
+  </mat-card>
+</div>
